@@ -14,6 +14,13 @@
 		3DA37EF51BE7F9C60028B2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA37EF31BE7F9C60028B2A8 /* LaunchScreen.storyboard */; };
 		3DA37F001BE7F9C60028B2A8 /* Whack_A_MoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EFF1BE7F9C60028B2A8 /* Whack_A_MoleTests.swift */; };
 		3DA37F0B1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37F0A1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift */; };
+		3DD270201BE934B700F7F4E1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2701F1BE934B700F7F4E1 /* Tile.swift */; };
+		3DD270221BE9376100F7F4E1 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270211BE9376100F7F4E1 /* Role.swift */; };
+		3DD270241BE938FC00F7F4E1 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270231BE938FC00F7F4E1 /* game.swift */; };
+		3DD270261BE9393D00F7F4E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270251BE9393D00F7F4E1 /* User.swift */; };
+		3DD270281BE94DC300F7F4E1 /* MolesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270271BE94DC300F7F4E1 /* MolesList.swift */; };
+		3DD2702A1BE94F3200F7F4E1 /* KingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270291BE94F3200F7F4E1 /* KingsList.swift */; };
+		3DD2702E1BE9503700F7F4E1 /* TilesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2702D1BE9503700F7F4E1 /* TilesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		3DA37F061BE7F9C60028B2A8 /* Whack-A-MoleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Whack-A-MoleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA37F0A1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whack_A_MoleUITests.swift; sourceTree = "<group>"; };
 		3DA37F0C1BE7F9C60028B2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DD2701F1BE934B700F7F4E1 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		3DD270211BE9376100F7F4E1 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		3DD270231BE938FC00F7F4E1 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
+		3DD270251BE9393D00F7F4E1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3DD270271BE94DC300F7F4E1 /* MolesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MolesList.swift; sourceTree = "<group>"; };
+		3DD270291BE94F3200F7F4E1 /* KingsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsList.swift; sourceTree = "<group>"; };
+		3DD2702D1BE9503700F7F4E1 /* TilesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TilesList.swift; path = ../TilesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +111,9 @@
 		3DA37EE91BE7F9C60028B2A8 /* Whack-A-Mole */ = {
 			isa = PBXGroup;
 			children = (
+				3DD2702C1BE94FD300F7F4E1 /* View */,
+				3DD2702B1BE94F7E00F7F4E1 /* DataModel */,
 				3DA37EEA1BE7F9C60028B2A8 /* AppDelegate.swift */,
-				3DA37EEC1BE7F9C60028B2A8 /* ViewController.swift */,
 				3DA37EEE1BE7F9C60028B2A8 /* Main.storyboard */,
 				3DA37EF11BE7F9C60028B2A8 /* Assets.xcassets */,
 				3DA37EF31BE7F9C60028B2A8 /* LaunchScreen.storyboard */,
@@ -123,6 +138,28 @@
 				3DA37F0C1BE7F9C60028B2A8 /* Info.plist */,
 			);
 			path = "Whack-A-MoleUITests";
+			sourceTree = "<group>";
+		};
+		3DD2702B1BE94F7E00F7F4E1 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DD270251BE9393D00F7F4E1 /* User.swift */,
+				3DD270211BE9376100F7F4E1 /* Role.swift */,
+				3DD270271BE94DC300F7F4E1 /* MolesList.swift */,
+				3DD270291BE94F3200F7F4E1 /* KingsList.swift */,
+				3DD2701F1BE934B700F7F4E1 /* Tile.swift */,
+				3DD2702D1BE9503700F7F4E1 /* TilesList.swift */,
+				3DD270231BE938FC00F7F4E1 /* game.swift */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		3DD2702C1BE94FD300F7F4E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DA37EEC1BE7F9C60028B2A8 /* ViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +293,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DD2702E1BE9503700F7F4E1 /* TilesList.swift in Sources */,
 				3DA37EED1BE7F9C60028B2A8 /* ViewController.swift in Sources */,
+				3DD270201BE934B700F7F4E1 /* Tile.swift in Sources */,
+				3DD2702A1BE94F3200F7F4E1 /* KingsList.swift in Sources */,
+				3DD270261BE9393D00F7F4E1 /* User.swift in Sources */,
+				3DD270241BE938FC00F7F4E1 /* game.swift in Sources */,
 				3DA37EEB1BE7F9C60028B2A8 /* AppDelegate.swift in Sources */,
+				3DD270281BE94DC300F7F4E1 /* MolesList.swift in Sources */,
+				3DD270221BE9376100F7F4E1 /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +526,7 @@
 				3DA37F111BE7F9C60028B2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA37F121BE7F9C60028B2A8 /* Build configuration list for PBXNativeTarget "Whack-A-MoleTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +535,7 @@
 				3DA37F141BE7F9C60028B2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA37F151BE7F9C60028B2A8 /* Build configuration list for PBXNativeTarget "Whack-A-MoleUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +544,7 @@
 				3DA37F171BE7F9C60028B2A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

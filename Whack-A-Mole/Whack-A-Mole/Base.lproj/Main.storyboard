@@ -22,50 +22,78 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p8v-YX-N55" userLabel="gameView">
                                 <rect key="frame" x="20" y="49" width="280" height="280"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-Q5-VtU" userLabel="11">
+                                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Spartans" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-Q5-VtU" userLabel="11">
                                         <rect key="frame" x="5" y="8" width="65" height="65"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qSm-Q5-VtU" secondAttribute="height" multiplier="1:1" id="UlM-M7-NeH"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="yZU-5l-PgO"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lb8-Ne-0PV" userLabel="12">
                                         <rect key="frame" x="73" y="8" width="65" height="65"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lb8-Ne-0PV" secondAttribute="height" multiplier="1:1" id="2RR-Zi-fQZ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="X1R-Tx-MWU"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K5p-Ez-tgK" userLabel="13">
                                         <rect key="frame" x="140" y="8" width="65" height="65"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="K5p-Ez-tgK" secondAttribute="height" multiplier="1:1" id="JVe-fk-4yn"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="cxa-nc-nld"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgB-zf-BsY" userLabel="14">
                                         <rect key="frame" x="207" y="8" width="65" height="65"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vgB-zf-BsY" secondAttribute="height" multiplier="1:1" id="3Ti-g3-NVl"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="gpd-tn-Fwa"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="21" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k32-0Q-tIx" userLabel="21">
                                         <rect key="frame" x="5" y="74" width="65" height="65"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="k32-0Q-tIx" secondAttribute="height" multiplier="1:1" id="em2-NL-4bY"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="OpM-aE-VQm"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-is-GUa" userLabel="22">
                                         <rect key="frame" x="73" y="74" width="65" height="65"/>
                                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Z7f-is-GUa" secondAttribute="height" multiplier="1:1" id="96J-Jp-B2h"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="HfV-UK-PSM"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="230" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0n-td-hfm" userLabel="23">
                                         <rect key="frame" x="140" y="74" width="65" height="65"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="X0n-td-hfm" secondAttribute="height" multiplier="1:1" id="drt-Rw-N7I"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="aMW-cE-6gH"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="24" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-pc-5bP" userLabel="24">
                                         <rect key="frame" x="207" y="74" width="65" height="65"/>
@@ -73,6 +101,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Znh-pc-5bP" secondAttribute="height" multiplier="1:1" id="t3E-GP-us7"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="zGR-JW-YKJ"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="31" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-sW-yPc" userLabel="31">
                                         <rect key="frame" x="5" y="141" width="65" height="65"/>
@@ -80,12 +111,18 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vLl-sW-yPc" secondAttribute="height" multiplier="1:1" id="Jc5-1H-0wK"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="O0d-Xe-raX"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="32" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6mO-hr-Igv" userLabel="32">
                                         <rect key="frame" x="73" y="141" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6mO-hr-Igv" secondAttribute="height" multiplier="1:1" id="Qh1-1U-juE"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="Cgw-xc-HQ5"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="33" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yhd-F9-X0f" userLabel="33">
                                         <rect key="frame" x="140" y="141" width="65" height="65"/>
@@ -93,18 +130,27 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yhd-F9-X0f" secondAttribute="height" multiplier="1:1" id="I0r-6V-BuP"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="pWt-Wn-qTL"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="34" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33H-pa-Z8f" userLabel="34">
                                         <rect key="frame" x="207" y="141" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="33H-pa-Z8f" secondAttribute="height" multiplier="1:1" id="n4m-VA-PaY"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="xUF-i8-CBp"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="41" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBl-Eg-gEl" userLabel="41">
                                         <rect key="frame" x="5" y="207" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bBl-Eg-gEl" secondAttribute="height" multiplier="1:1" id="ns4-NC-eKu"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="P21-0v-fH4"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="42" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iS6-ng-OsI" userLabel="42">
                                         <rect key="frame" x="73" y="207" width="65" height="65"/>
@@ -112,12 +158,18 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iS6-ng-OsI" secondAttribute="height" multiplier="1:1" id="Xot-is-UlE"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="KMr-dH-P2A"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="43" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y65-BM-J1b" userLabel="43">
                                         <rect key="frame" x="140" y="207" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Y65-BM-J1b" secondAttribute="height" multiplier="1:1" id="J3i-0L-IdP"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="K8c-eD-ulb"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="44" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-It-oUq" userLabel="44">
                                         <rect key="frame" x="207" y="207" width="65" height="65"/>
@@ -125,6 +177,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hbP-It-oUq" secondAttribute="height" multiplier="1:1" id="Jh1-R7-hwd"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="omX-kv-lcP" appends="YES" id="no0-oK-Aen"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59210526320000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,10 +317,33 @@
                             <constraint firstItem="p8v-YX-N55" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xTW-Cp-VL8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameView" destination="p8v-YX-N55" id="rH7-UI-8JP"/>
+                        <outletCollection property="imageCollection" destination="qSm-Q5-VtU" collectionClass="NSMutableArray" id="SSW-1W-EOI"/>
+                        <outletCollection property="imageCollection" destination="Lb8-Ne-0PV" collectionClass="NSMutableArray" id="QQZ-pC-osq"/>
+                        <outletCollection property="imageCollection" destination="K5p-Ez-tgK" collectionClass="NSMutableArray" id="Gsr-EI-rtq"/>
+                        <outletCollection property="imageCollection" destination="vgB-zf-BsY" collectionClass="NSMutableArray" id="Urn-Qj-KIO"/>
+                        <outletCollection property="imageCollection" destination="k32-0Q-tIx" collectionClass="NSMutableArray" id="HZv-Xl-yLv"/>
+                        <outletCollection property="imageCollection" destination="Z7f-is-GUa" collectionClass="NSMutableArray" id="WrU-5t-1ph"/>
+                        <outletCollection property="imageCollection" destination="X0n-td-hfm" collectionClass="NSMutableArray" id="yfG-9F-Z1s"/>
+                        <outletCollection property="imageCollection" destination="Znh-pc-5bP" collectionClass="NSMutableArray" id="csE-Ed-t5H"/>
+                        <outletCollection property="imageCollection" destination="vLl-sW-yPc" collectionClass="NSMutableArray" id="ALI-gl-Fqa"/>
+                        <outletCollection property="imageCollection" destination="6mO-hr-Igv" collectionClass="NSMutableArray" id="IGZ-M1-G2T"/>
+                        <outletCollection property="imageCollection" destination="Yhd-F9-X0f" collectionClass="NSMutableArray" id="o8f-ju-lal"/>
+                        <outletCollection property="imageCollection" destination="33H-pa-Z8f" collectionClass="NSMutableArray" id="Yg4-0r-Deq"/>
+                        <outletCollection property="imageCollection" destination="bBl-Eg-gEl" collectionClass="NSMutableArray" id="Rg8-0N-xUh"/>
+                        <outletCollection property="imageCollection" destination="iS6-ng-OsI" collectionClass="NSMutableArray" id="Cfm-3L-yBL"/>
+                        <outletCollection property="imageCollection" destination="Y65-BM-J1b" collectionClass="NSMutableArray" id="QMe-Mx-p4Z"/>
+                        <outletCollection property="imageCollection" destination="hbP-It-oUq" collectionClass="NSMutableArray" id="vU5-Jk-M1K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="omX-kv-lcP"/>
             </objects>
             <point key="canvasLocation" x="234" y="322"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Spartans" width="400" height="400"/>
+    </resources>
 </document>

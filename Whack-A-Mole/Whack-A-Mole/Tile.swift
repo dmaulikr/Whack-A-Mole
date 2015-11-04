@@ -1,0 +1,32 @@
+//
+//  Title.swift
+//  Whack-A-Mole
+//
+//  Created by ling on 11/3/15.
+//  Copyright © 2015 Ling. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+
+class Tile{
+    var tileImage: UIImage
+    var ID: Int
+    var roleIfMole: Bool
+    var roleName:String
+    
+    init(tileImage: UIImage, ID: Int, roleIfMole: Bool, roleName:String){
+        self.tileImage = tileImage
+        self.ID = ID
+        self.roleIfMole = true
+        self.roleName = roleName
+    }
+    
+    
+
+}
+
+
+
+
