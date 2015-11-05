@@ -7,6 +7,7 @@
 //
 import Foundation
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -18,13 +19,16 @@ class ViewController: UIViewController {
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
     var tappedIndex = Int()
+    var audioPlayerRole : AVAudioPlayer! = nil
 
-    var gameDifficultyBreakPoint = [55, 50, 45]  //at what time adjust the interval speed
+    var gameDifficultyBreakPoint = [55, 50, 45 ]  //at what time adjust the interval speed
 
     @IBOutlet weak var gameView: UIView!
     @IBOutlet var imageCollection: [UIImageView]!
     @IBOutlet weak var gameTimerLabel: UILabel!
     @IBOutlet var tapGesturerOutlet: UITapGestureRecognizer!
+    
+ 
 
     
     override func viewDidLoad() {
@@ -34,8 +38,6 @@ class ViewController: UIViewController {
         setupGame()
         setupInterval()
         setGesture()
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +77,6 @@ class ViewController: UIViewController {
     func setupInterval() {
         intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
     }
-    
     
     func subtractIntervalTime() {
         intervalSeconds--
@@ -125,6 +126,7 @@ class ViewController: UIViewController {
     //set up hand gesture
     func setGesture(){
         for index in 0..<16{
+            print("setttttttttttttttttting Tap!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             let tileTap = UITapGestureRecognizer(target: self, action: ("handleTap:"))
             imageCollection[index].addGestureRecognizer(tileTap)
             tappedIndex = index
@@ -135,6 +137,7 @@ class ViewController: UIViewController {
         if gameSeconds > 0 {
             tappedIndex = sender.view!.tag
             print("\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) was tappppppppppppppped")
+           // moleKingSwitchAffects()
         }
         else {
             sender.enabled = false
@@ -142,72 +145,50 @@ class ViewController: UIViewController {
     }
     
     
+    //set audio
+    func playSound(fileName: String, type: String ){
+        let tempAudioPlayer  = self.setupAudioFile("CatSound", type: "mp3")
+        self.audioPlayerRole = tempAudioPlayer
+        audioPlayerRole.play()
+        audioPlayerRole.volume = 5.0
+    }
 
-    @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
+    func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
+        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
         
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-//    
-//    func flipTile(){
-//        // angles in iOS are measured as radians PI is 180 degrees so PI × 2 is 360 degrees
-//        let fullRotation = CGFloat(M_PI * 2)
-////        self.imageCollection![0].image = UIImage(named: "Ling")
-//        UIImageView.animateWithDuration(1.0, animations: {
-//            // animating `transform` allows us to change 2D geometry of the object
-//            // like `scale`, `rotation` or `translate`
-//            self.imageCollection![0].image?.animationDidStart(<#T##anim: CAAnimation##CAAnimation#>)
-//                transform = CGAffineTransformMakeRotation(fullRotation)
-//        })
-//    }
- /*
-    
-    // create a 'tuple' (a pair or more of objects assigned to a single variable)
-    var views : (frontView: UIView, backView: UIView)
-    
-    if(self.redSquare.superview){
-    views = (frontView: self.redSquare, backView: self.blueSquare)
-    }
-    else {
-    views = (frontView: self.blueSquare, backView: self.redSquare)
-    }
-    
-    // set a transition style
-    let transitionOptions = UIViewAnimationOptions.TransitionCurlUp
-    
-    // with no animation block, and a completion block set to 'nil' this makes a single line of code
-    UIView.transitionFromView(views.frontView, toView: views.backView, duration: 1.0, options: transitionOptions, completion: nil)
-    
-    
-    
-    
-    
-    
-    let transitionOptions = UIViewAnimationOptions.TransitionFlipFromLeft
-    
-        // create and add blue-fish.png image to screen
-        let fish = UIImageView()
-        fish.image = UIImage(named: "blue-fish.png")
-        fish.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-        self.view.addSubview(fish)
+        let url = NSURL.fileURLWithPath(path!)
         
-        // angles in iOS are measured as radians PI is 180 degrees so PI × 2 is 360 degrees
-        let fullRotation = CGFloat(M_PI * 2)
+        var audioPlayer: AVAudioPlayer?
         
-        UIView.animateWithDuration(1.0, animations: {
-            // animating `transform` allows us to change 2D geometry of the object
-            // like `scale`, `rotation` or `translate`
-            self.fish.transform = CGAffineTransformMakeRotation(fullRotation)
-        })
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+        } catch {
+            print("Player not available")
+        }
+        return audioPlayer
     }
-*/
+    
+    
+    func moleKingSwitchAffects(){
+        // if tapped no mole
+        if !TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole {
+            playSound("Wa", type: "wav")
+        }
+        // if tapped mole
+        else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole {
+            playSound("CatSound", type: "mp3")
+        }
+        // if tapped secret role
+        else  {
+            playSound("CatSound", type: "mp3")
+        }
+    }
+    
 
+    @IBAction func tapTileFeedbackTileIndex(sender: AnyObject) {
+    }
+
+ 
 
 
 }
