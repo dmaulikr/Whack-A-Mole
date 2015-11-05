@@ -5,23 +5,32 @@
 //  Created by ling on 11/2/15.
 //  Copyright © 2015 Ling. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var gameCount = 0
+    var intervalCount = 0
+    var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
+    var gameSeconds = 60  // how long the game is going to be
+    var intervalSeconds = Int() // how long the interval is going to be
+    var gameTimer = NSTimer()
+    var intervalTimer = NSTimer()
+
+    var gameDifficultyBreakPoint = [55, 50, 45]  //at what time adjust the interval speed
 
     @IBOutlet weak var gameView: UIView!
     @IBOutlet var imageCollection: [UIImageView]!
+    @IBOutlet weak var gameTimerLabel: UILabel!
 
     
     override func viewDidLoad() {
+        intervalSeconds = difficultyLevel[0]
         super.viewDidLoad()
-        TilesList.sharedTilesList.setTilesArray()
-        passTImageToImageViews()
-        
-// flipTile()
-        //timer 1
-        //timer 2
+        setTileArrayPassIageToTile()
+        setupGame()
+        setupInterval()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +45,77 @@ class ViewController: UIViewController {
         }
     
     }
+    
+    func setTileArrayPassIageToTile(){
+        TilesList.sharedTilesList.setTilesArray()
+        passTImageToImageViews()
+    }
+    
+    func setupGame() {
+        gameTimerLabel.text = "\(gameSeconds)"
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractGameTime"), userInfo: nil, repeats: true)
+    }
+    
+    func subtractGameTime() {
+        gameSeconds--
+        gameTimerLabel.text = "\(gameSeconds)"
+        if(gameSeconds == 0) {
+        gameTimer.invalidate()
+        
+        }
+    }
+    
+    func setupInterval() {
+        intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
+    }    
+    
+    
+    func subtractIntervalTime() {
+        intervalSeconds--
+        print( "\(intervalSeconds)")
+        if (gameSeconds > gameDifficultyBreakPoint[0]) {
+            if(intervalSeconds == 0) {
+                intervalSeconds = difficultyLevel[0]
+                print("change tile, difficulty to easy")
+                TilesList.sharedTilesList.tilesArray = [Tile]()
+                setTileArrayPassIageToTile()
+            }
+        }
+        
+        else if (gameSeconds > gameDifficultyBreakPoint[1]) {
+            if(intervalSeconds == 0) {
+                intervalSeconds = difficultyLevel[1]
+                print("change tile image next, difficulty to medium")
+                TilesList.sharedTilesList.tilesArray = [Tile]()
+                setTileArrayPassIageToTile()
+            }
+        }
+            
+        else if (gameSeconds > gameDifficultyBreakPoint[2]) {
+            if(intervalSeconds == 0) {
+                intervalSeconds = difficultyLevel[2]
+                print("change tile image next, difficulty to hard")
+                TilesList.sharedTilesList.tilesArray = [Tile]()
+                setTileArrayPassIageToTile()
+            }
+        }
+        
+        else if (gameSeconds > 0) {
+            if(intervalSeconds == 0) {
+                intervalSeconds = difficultyLevel[2]
+                print("change tile image next")
+                TilesList.sharedTilesList.tilesArray = [Tile]()
+                setTileArrayPassIageToTile()
+            }
+        }
+
+        else if (gameSeconds == 0){
+            intervalTimer.invalidate()
+        }
+    }
+    
+    
+    
     
     
     

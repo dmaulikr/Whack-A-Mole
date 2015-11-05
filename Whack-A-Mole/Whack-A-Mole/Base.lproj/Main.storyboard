@@ -318,6 +318,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameTimerLabel" destination="UFO-g4-hof" id="8cc-eT-Tif"/>
                         <outlet property="gameView" destination="p8v-YX-N55" id="rH7-UI-8JP"/>
                         <outletCollection property="imageCollection" destination="qSm-Q5-VtU" collectionClass="NSMutableArray" id="SSW-1W-EOI"/>
                         <outletCollection property="imageCollection" destination="Lb8-Ne-0PV" collectionClass="NSMutableArray" id="QQZ-pC-osq"/>
