@@ -14,21 +14,20 @@ class ViewController: UIViewController {
     var gameCount = 0
     var intervalCount = 0
     var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 10  // how long the game is going to be
+    var gameSeconds = 45  // how long the game is going to be
     var intervalSeconds = Int() // how long the interval is going to be
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
     var tappedIndex = Int()
     var audioPlayerRole : AVAudioPlayer! = nil
 
-    var gameDifficultyBreakPoint = [55, 50, 45 ]  //at what time adjust the interval speed
+
+    var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
 
     @IBOutlet weak var gameView: UIView!
     @IBOutlet var imageCollection: [UIImageView]!
     @IBOutlet weak var gameTimerLabel: UILabel!
     @IBOutlet var tapGesturerOutlet: UITapGestureRecognizer!
-    
- 
 
     
     override func viewDidLoad() {
@@ -38,6 +37,8 @@ class ViewController: UIViewController {
         setupGame()
         setupInterval()
         setGesture()
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +66,8 @@ class ViewController: UIViewController {
     }
     
     func subtractGameTime() {
+        intervalCount++
+        print("This is the \(intervalCount)th interval.")
         gameSeconds--
         gameTimerLabel.text = "\(gameSeconds)"
         if(gameSeconds == 0) {
@@ -77,6 +80,7 @@ class ViewController: UIViewController {
     func setupInterval() {
         intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
     }
+    
     
     func subtractIntervalTime() {
         intervalSeconds--
@@ -126,7 +130,6 @@ class ViewController: UIViewController {
     //set up hand gesture
     func setGesture(){
         for index in 0..<16{
-            print("setttttttttttttttttting Tap!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             let tileTap = UITapGestureRecognizer(target: self, action: ("handleTap:"))
             imageCollection[index].addGestureRecognizer(tileTap)
             tappedIndex = index
@@ -137,7 +140,8 @@ class ViewController: UIViewController {
         if gameSeconds > 0 {
             tappedIndex = sender.view!.tag
             print("\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) was tappppppppppppppped")
-           // moleKingSwitchAffects()
+            moleKingSwitchAffects()
+
         }
         else {
             sender.enabled = false
@@ -146,13 +150,13 @@ class ViewController: UIViewController {
     
     
     //set audio
-    func playSound(fileName: String, type: String ){
-        let tempAudioPlayer  = self.setupAudioFile("CatSound", type: "mp3")
+    func playSound(soundFileName: String, type: String){
+        let tempAudioPlayer  = self.setupAudioFile(soundFileName, type: type)
         self.audioPlayerRole = tempAudioPlayer
         audioPlayerRole.play()
-        audioPlayerRole.volume = 5.0
+        audioPlayerRole.volume = 3.0
     }
-
+    
     func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
         let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
         
@@ -168,27 +172,37 @@ class ViewController: UIViewController {
         return audioPlayer
     }
     
-    
+
     func moleKingSwitchAffects(){
         // if tapped no mole
-        if !TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole {
-            playSound("Wa", type: "wav")
-        }
-        // if tapped mole
-        else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole {
+        if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == false {
+            print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("CatSound", type: "mp3")
         }
-        // if tapped secret role
+            // if tapped mole
+        else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == true {
+            print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
+            playSound("WhackSound", type: "wav")
+        }
+            // if tapped secret role
         else  {
+            print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("CatSound", type: "mp3")
         }
     }
     
 
-    @IBAction func tapTileFeedbackTileIndex(sender: AnyObject) {
+    @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
+        
     }
+    
+    
+    
+    
+    
+    
 
- 
+
 
 
 }

@@ -16,7 +16,7 @@ class Role {
     init(roleImage: UIImage, roleName: String, roleIfMole: Bool){
         self.roleImage = roleImage
         self.roleName = roleName
-        self.roleIfMole = true
+        self.roleIfMole = roleIfMole
     }
 
 }

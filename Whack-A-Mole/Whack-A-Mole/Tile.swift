@@ -19,7 +19,7 @@ class Tile{
     init(tileImage: UIImage, ID: Int, roleIfMole: Bool, roleName:String){
         self.tileImage = tileImage
         self.ID = ID
-        self.roleIfMole = true
+        self.roleIfMole = roleIfMole
         self.roleName = roleName
     }
     
