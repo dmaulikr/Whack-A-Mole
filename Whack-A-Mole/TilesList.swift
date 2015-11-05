@@ -38,7 +38,7 @@ class TilesList {
     
     
     func setRoleToSingleTile() -> Tile {
-        var randomRole = Role(roleImage: UIImage(named: "Ling")!, roleName: "baba", roleIfMole: true)
+        var randomRole = Role(roleImage: UIImage(named: "cat")!, roleName: "baba", roleIfMole: true)
         var roleIfMole = true
         var tempTile: Tile
         let unsignedChoiceCount = UInt32(2)

@@ -23,7 +23,7 @@ class KingsList {
     private(set) var kingsArray:[Role]
     
     init() {
-        kingsArray = [ling]
+        kingsArray = [cat]
     }
 
     

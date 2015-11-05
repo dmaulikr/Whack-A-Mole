@@ -13,16 +13,18 @@ class ViewController: UIViewController {
     var gameCount = 0
     var intervalCount = 0
     var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 60  // how long the game is going to be
+    var gameSeconds = 10  // how long the game is going to be
     var intervalSeconds = Int() // how long the interval is going to be
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
+    var tappedIndex = Int()
 
     var gameDifficultyBreakPoint = [55, 50, 45]  //at what time adjust the interval speed
 
     @IBOutlet weak var gameView: UIView!
     @IBOutlet var imageCollection: [UIImageView]!
     @IBOutlet weak var gameTimerLabel: UILabel!
+    @IBOutlet var tapGesturerOutlet: UITapGestureRecognizer!
 
     
     override func viewDidLoad() {
@@ -31,6 +33,9 @@ class ViewController: UIViewController {
         setTileArrayPassIageToTile()
         setupGame()
         setupInterval()
+        setGesture()
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,12 +43,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // set up Tile
     func passTImageToImageViews(){
         for index in 0...15{
             imageCollection[index].image = TilesList.sharedTilesList.tilesArray[index].tileImage
             print(TilesList.sharedTilesList.tilesArray[index].ID)
         }
-    
     }
     
     func setTileArrayPassIageToTile(){
@@ -51,6 +56,7 @@ class ViewController: UIViewController {
         passTImageToImageViews()
     }
     
+    //set up game timer
     func setupGame() {
         gameTimerLabel.text = "\(gameSeconds)"
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractGameTime"), userInfo: nil, repeats: true)
@@ -65,9 +71,10 @@ class ViewController: UIViewController {
         }
     }
     
+    //set up intervel
     func setupInterval() {
         intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
-    }    
+    }
     
     
     func subtractIntervalTime() {
@@ -111,22 +118,34 @@ class ViewController: UIViewController {
 
         else if (gameSeconds == 0){
             intervalTimer.invalidate()
+            
+        }
+    }
+    
+    //set up hand gesture
+    func setGesture(){
+        for index in 0..<16{
+            let tileTap = UITapGestureRecognizer(target: self, action: ("handleTap:"))
+            imageCollection[index].addGestureRecognizer(tileTap)
+            tappedIndex = index
+        }
+    }
+    
+    func handleTap(sender:UITapGestureRecognizer){
+        if gameSeconds > 0 {
+            tappedIndex = sender.view!.tag
+            print("\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) was tappppppppppppppped")
+        }
+        else {
+            sender.enabled = false
         }
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
+    @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
+        
+    }
     
     
     

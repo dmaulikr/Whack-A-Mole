@@ -22,6 +22,7 @@ class Role {
 }
 
 var ling = Role(roleImage: UIImage(named: "Ling")!, roleName: "Ling", roleIfMole: false)
+var cat = Role(roleImage: UIImage(named: "cat")!, roleName: "cat", roleIfMole: false)
 var spartans = Role(roleImage: UIImage(named: "Spartans")!, roleName: "Spartans", roleIfMole: true)
 var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true)
 
