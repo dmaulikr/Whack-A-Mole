@@ -196,10 +196,14 @@ class ViewController: UIViewController{
         tempScore = scoreArray[tappedIndex]+1
         scoreArray.removeAtIndex(tappedIndex)
         scoreArray.insert(tempScore, atIndex: tappedIndex)
+        print(scoreArray)
     }
     
     func updateScoreBoard(){
-        mainSLabel1.text = "\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) \(scoreArray[tappedIndex]) times)"
+        updateDetailScore()
+        mainSLabel1.text = "\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) \(scoreArray[tappedIndex])"
+        mainSLabel2.text = ""
+        mainSLabel3.text = ""
     }
     
     
