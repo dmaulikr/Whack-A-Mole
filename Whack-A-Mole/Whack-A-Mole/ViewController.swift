@@ -20,6 +20,7 @@ class ViewController: UIViewController{
     var intervalTimer = NSTimer()
     var tappedIndex = Int()
     var audioPlayerRole : AVAudioPlayer! = nil
+    var scoreArray = [Int]()
 
 
     var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
@@ -28,6 +29,9 @@ class ViewController: UIViewController{
     @IBOutlet var imageCollection: [UIImageView]!
     @IBOutlet weak var gameTimerLabel: UILabel!
     @IBOutlet var tapGesturerOutlet: UITapGestureRecognizer!
+    @IBOutlet weak var mainSLabel1: UILabel!
+    @IBOutlet weak var mainSLabel2: UILabel!
+    @IBOutlet weak var mainSLabel3: UILabel!
 
     
     override func viewDidLoad() {
@@ -55,6 +59,7 @@ class ViewController: UIViewController{
     }
     func setTileArrayPassIageToTile(){
         TilesList.sharedTilesList.setTilesArray()
+        scoreArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         passTImageToImageViews()
     }
     
@@ -175,6 +180,7 @@ class ViewController: UIViewController{
         else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == true {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("WhackSound", type: "wav")
+            updateScoreBoard()
         }
             // if tapped secret role
         else  {
@@ -182,6 +188,22 @@ class ViewController: UIViewController{
             playSound("CatSound", type: "mp3")
         }
     }
+    
+    
+    //tracking Score
+    func updateDetailScore(){
+        var tempScore: Int
+        tempScore = scoreArray[tappedIndex]+1
+        scoreArray.removeAtIndex(tappedIndex)
+        scoreArray.insert(tempScore, atIndex: tappedIndex)
+    }
+    
+    func updateScoreBoard(){
+        mainSLabel1.text = "\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) \(scoreArray[tappedIndex]) times)"
+    }
+    
+    
+    
     
 
     @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {

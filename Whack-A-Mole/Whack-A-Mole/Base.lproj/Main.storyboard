@@ -280,10 +280,24 @@
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-AG-uga">
-                                        <rect key="frame" x="8" y="28" width="122" height="70"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mainSLabel1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLl-jv-8Rn">
+                                        <rect key="frame" x="8" y="29" width="115" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mainSLabel2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh1-bz-UcR">
+                                        <rect key="frame" x="8" y="49" width="115" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mainSLabel3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQw-8m-Iq7">
+                                        <rect key="frame" x="8" y="69" width="115" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -326,6 +340,9 @@
                     <connections>
                         <outlet property="gameTimerLabel" destination="UFO-g4-hof" id="8cc-eT-Tif"/>
                         <outlet property="gameView" destination="p8v-YX-N55" id="rH7-UI-8JP"/>
+                        <outlet property="mainSLabel1" destination="YLl-jv-8Rn" id="nnj-s4-ERA"/>
+                        <outlet property="mainSLabel2" destination="Vh1-bz-UcR" id="fmF-Bk-iyX"/>
+                        <outlet property="mainSLabel3" destination="FQw-8m-Iq7" id="EZA-EN-7k9"/>
                         <outlet property="tapGesturerOutlet" destination="omX-kv-lcP" id="BKS-Lu-ilT"/>
                         <outletCollection property="imageCollection" destination="qSm-Q5-VtU" collectionClass="NSMutableArray" id="SSW-1W-EOI"/>
                         <outletCollection property="imageCollection" destination="Lb8-Ne-0PV" collectionClass="NSMutableArray" id="QQZ-pC-osq"/>
