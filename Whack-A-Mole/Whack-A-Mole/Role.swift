@@ -13,16 +13,20 @@ class Role {
     var roleImage: UIImage
     var roleName: String
     var roleIfMole: Bool
-    init(roleImage: UIImage, roleName: String, roleIfMole: Bool){
+    var soundFileName: String
+    var soundType: String
+    init(roleImage: UIImage, roleName: String, roleIfMole: Bool, soundFileName: String, soundType: String){
         self.roleImage = roleImage
         self.roleName = roleName
         self.roleIfMole = roleIfMole
+        self.soundFileName = soundFileName
+        self.soundType = soundType
     }
 
 }
 
-var ling = Role(roleImage: UIImage(named: "Ling")!, roleName: "Ling", roleIfMole: false)
-var cat = Role(roleImage: UIImage(named: "cat")!, roleName: "cat", roleIfMole: false)
-var spartans = Role(roleImage: UIImage(named: "Spartans")!, roleName: "Spartans", roleIfMole: true)
-var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true)
+//var ling = Role(roleImage: UIImage(named: "Ling")!, roleName: "Ling", roleIfMole: false, soundFileName: cast)
+var cat = Role(roleImage: UIImage(named: "cat")!, roleName: "cat", roleIfMole: false, soundFileName: "CatSound ", soundType: "mp3")
+var spartans = Role(roleImage: UIImage(named: "Spartans")!, roleName: "Spartans", roleIfMole: true,  soundFileName: "WhatSound", soundType: "wav")
+var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true,  soundFileName: "WhatSound", soundType: "wav")
 

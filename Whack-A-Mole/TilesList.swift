@@ -30,7 +30,8 @@ class TilesList {
     func setTilesArray() -> [Tile]{
         for index in 1...16 {
             var tempTile = setRoleToSingleTile()
-            tempTile = Tile(tileImage: tempTile.tileImage, ID: index, roleIfMole: tempTile.roleIfMole, roleName: tempTile.roleName )
+            tempTile = Tile(tileImage: tempTile.tileImage, ID: index, roleIfMole: tempTile.roleIfMole, roleName: tempTile.roleName,soundFileName: tempTile.soundFileName, soundType: tempTile.soundType)
+            
             tilesArray.append(tempTile)
         }
             return tilesArray
@@ -38,7 +39,7 @@ class TilesList {
     
     
     func setRoleToSingleTile() -> Tile {
-        var randomRole = Role(roleImage: UIImage(named: "cat")!, roleName: "baba", roleIfMole: true)
+        var randomRole = Role(roleImage: UIImage(named: "cat")!, roleName: "baba", roleIfMole: true, soundFileName: "" , soundType: "")
         var roleIfMole = true
         var tempTile: Tile
         let unsignedChoiceCount = UInt32(2)
@@ -47,15 +48,23 @@ class TilesList {
         print("\(choiceNumber) is the Mole or King choice")
         if choiceNumber == 0 {
             randomRole = MolesList.sharedMolesList.randomMole()
-            print("\(randomRole.roleName) for this Tile")
+            if randomRole.soundFileName == ""{
+                randomRole.soundFileName = "CatSound"
+                randomRole.soundType = "mp3"
+            }
+            print("\(randomRole.roleName) for this Tile,  (randomRole.soundFileName)")
             roleIfMole = true
         }
         if choiceNumber == 1 {
             randomRole = KingsList.sharedKingsList.randomKing()
-            print("\(randomRole.roleName) for this Tile")
+            if randomRole.soundFileName == ""{
+                randomRole.soundFileName = "WhackSound"
+                randomRole.soundType = "wav"
+            }
+            print("\(randomRole.roleName) for this Tile,  (randomRole.soundFileName)")
             roleIfMole = false
         }
-        tempTile = Tile(tileImage:randomRole.roleImage, ID: 10, roleIfMole: roleIfMole, roleName:randomRole.roleName)
+        tempTile = Tile(tileImage:randomRole.roleImage, ID: 10, roleIfMole: roleIfMole, roleName:randomRole.roleName, soundFileName: randomRole.soundFileName, soundType: randomRole.soundType)
         return tempTile
     }
 

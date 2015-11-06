@@ -15,12 +15,18 @@ class Tile{
     var ID: Int
     var roleIfMole: Bool
     var roleName:String
+    var soundFileName: String
+    var soundType: String
+
     
-    init(tileImage: UIImage, ID: Int, roleIfMole: Bool, roleName:String){
+    init(tileImage: UIImage, ID: Int, roleIfMole: Bool, roleName:String, soundFileName: String, soundType: String){
         self.tileImage = tileImage
         self.ID = ID
         self.roleIfMole = roleIfMole
         self.roleName = roleName
+        self.soundFileName = soundFileName
+        self.soundType = soundType
+
     }
     
     

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
     var gameCount = 0
     var intervalCount = 0
@@ -53,7 +53,6 @@ class ViewController: UIViewController {
             print(TilesList.sharedTilesList.tilesArray[index].ID)
         }
     }
-    
     func setTileArrayPassIageToTile(){
         TilesList.sharedTilesList.setTilesArray()
         passTImageToImageViews()
@@ -64,7 +63,6 @@ class ViewController: UIViewController {
         gameTimerLabel.text = "\(gameSeconds)"
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractGameTime"), userInfo: nil, repeats: true)
     }
-    
     func subtractGameTime() {
         intervalCount++
         print("This is the \(intervalCount)th interval.")
@@ -80,8 +78,6 @@ class ViewController: UIViewController {
     func setupInterval() {
         intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
     }
-    
-    
     func subtractIntervalTime() {
         intervalSeconds--
         print( "\(intervalSeconds)")
@@ -135,7 +131,6 @@ class ViewController: UIViewController {
             tappedIndex = index
         }
     }
-    
     func handleTap(sender:UITapGestureRecognizer){
         if gameSeconds > 0 {
             tappedIndex = sender.view!.tag
@@ -156,7 +151,6 @@ class ViewController: UIViewController {
         audioPlayerRole.play()
         audioPlayerRole.volume = 3.0
     }
-    
     func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
         let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
         
@@ -171,8 +165,6 @@ class ViewController: UIViewController {
         }
         return audioPlayer
     }
-    
-
     func moleKingSwitchAffects(){
         // if tapped no mole
         if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == false {
