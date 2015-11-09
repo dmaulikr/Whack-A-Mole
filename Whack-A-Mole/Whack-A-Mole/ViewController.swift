@@ -34,6 +34,7 @@ class ViewController: UIViewController{
 
     
     override func viewDidLoad() {
+        roundTile()
         intervalSeconds = difficultyLevel[0]
         super.viewDidLoad()
         creatEmptyScoreArray()
@@ -48,6 +49,15 @@ class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // round tile
+    func roundTile(){
+        for tile in imageCollection{
+            tile.layer.cornerRadius = tile.frame.size.width / 1.5
+            tile.clipsToBounds = true
+        }
+    }
+
     
     
     // set up Tile

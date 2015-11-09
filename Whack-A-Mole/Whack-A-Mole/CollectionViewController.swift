@@ -53,14 +53,27 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 6
+        var temp: Int = 0
+        if section == 0 {
+            temp = MolesList.sharedMolesList.molesArray.count
+        }
+        
+        if section == 1 {
+            temp = KingsList.sharedKingsList.kingsArray.count
+        }
+        return temp
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
+            cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
+            cell.cellImage.clipsToBounds = true
+//        online sample
+//        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+//        self.profileImageView.clipsToBounds = YES;
         
-        cell.cellImage.image = UIImage(named: "cat")
-            //UIImage(named: MolesList.sharedMolesList.molesArray[indexPath].roleName))
+        cell.cellImage.image = MolesList.sharedMolesList.molesArray[indexPath.row].roleImage
+
         // Configure the cell
     
         return cell
