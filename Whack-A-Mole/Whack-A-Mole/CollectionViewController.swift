@@ -12,6 +12,10 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     let reuseIdentifier = "cell"
+    
+    
+//    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+//    self.profileImageView.clipsToBounds = YES;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +57,10 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
+        
+        cell.cellImage.image = UIImage(named: "cat")
+            //UIImage(named: MolesList.sharedMolesList.molesArray[indexPath].roleName))
         // Configure the cell
     
         return cell
