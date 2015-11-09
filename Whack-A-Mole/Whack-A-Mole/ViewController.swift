@@ -213,15 +213,28 @@ class ViewController: UIViewController{
     func updateScoreBoard(){
         updateDetailScoreSortScoreArray()
         var tempScoreArray = scoreArray
-        var tempMoleArray = MolesList.sharedMolesList.molesArray    
+        var sortedScoreArray = [Int]()
+        var tempMoleArray = MolesList.sharedMolesList.molesArray
+        var sortedMoleArray = [Role]()
         
-        mainSLabel1.text = "\(tempMoleArray[(tempScoreArray.indexOf(tempScoreArray.maxElement()!))!].roleName) \(tempScoreArray.maxElement()!)"
-        tempScoreArray.removeAtIndex(tempScoreArray.indexOf(tempScoreArray.maxElement()!)!)
+        for _ in 0..<scoreArray.count {
+            sortedScoreArray.append(tempScoreArray.maxElement()!)
+            sortedMoleArray.append(tempMoleArray[tempScoreArray.indexOf(tempScoreArray.maxElement()!)!])
+            var tempIndex = tempScoreArray.indexOf(tempScoreArray.maxElement()!)
+            tempScoreArray.removeAtIndex(tempIndex!)
+            tempMoleArray.removeAtIndex(tempIndex!)
+        }
         
+        mainSLabel1.text = "\(sortedMoleArray[0].roleName) \(sortedScoreArray[0])"
         
+        if sortedMoleArray.count > 1 {
+            mainSLabel2.text = "\(sortedMoleArray[1].roleName) \(sortedScoreArray[1])"
+        }
         
-        //mainSLabel2.text = ""
-        //mainSLabel3.text = ""
+        if sortedMoleArray.count > 2 {
+            mainSLabel3.text = "\(sortedMoleArray[2].roleName) \(sortedScoreArray[2])"
+        }
+
     }
     
     @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
