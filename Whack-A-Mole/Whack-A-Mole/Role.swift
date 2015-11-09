@@ -28,5 +28,6 @@ class Role {
 //var ling = Role(roleImage: UIImage(named: "Ling")!, roleName: "Ling", roleIfMole: false, soundFileName: cast)
 var cat = Role(roleImage: UIImage(named: "cat")!, roleName: "cat", roleIfMole: false, soundFileName: "CatSound ", soundType: "mp3")
 var spartans = Role(roleImage: UIImage(named: "Spartans")!, roleName: "Spartans", roleIfMole: true,  soundFileName: "WhatSound", soundType: "wav")
-var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true,  soundFileName: "WhatSound", soundType: "wav")
+var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true,  soundFileName: "WhackSound", soundType: "wav")
+var donaldtrump = Role(roleImage: UIImage(named: "donaldtrump")!, roleName: "Donald Trump", roleIfMole: true, soundFileName: "WhackSound", soundType: "wav")
 

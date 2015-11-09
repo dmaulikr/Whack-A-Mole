@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1793BF1BF03D710068C0E7 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1793BE1BF03D710068C0E7 /* CollectionViewController.swift */; };
 		3DA37EEB1BE7F9C60028B2A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EEA1BE7F9C60028B2A8 /* AppDelegate.swift */; };
 		3DA37EED1BE7F9C60028B2A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EEC1BE7F9C60028B2A8 /* ViewController.swift */; };
 		3DA37EF01BE7F9C60028B2A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA37EEE1BE7F9C60028B2A8 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1793BE1BF03D710068C0E7 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		3DA37EE71BE7F9C60028B2A8 /* Whack-A-Mole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whack-A-Mole.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA37EEA1BE7F9C60028B2A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA37EEC1BE7F9C60028B2A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA37EEC1BE7F9C60028B2A8 /* ViewController.swift */,
+				3D1793BE1BF03D710068C0E7 /* CollectionViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				3DA37EED1BE7F9C60028B2A8 /* ViewController.swift in Sources */,
 				3DD270201BE934B700F7F4E1 /* Tile.swift in Sources */,
 				3DD2702A1BE94F3200F7F4E1 /* KingsList.swift in Sources */,
+				3D1793BF1BF03D710068C0E7 /* CollectionViewController.swift in Sources */,
 				3DD270261BE9393D00F7F4E1 /* User.swift in Sources */,
 				3DD270241BE938FC00F7F4E1 /* game.swift in Sources */,
 				3DA37EEB1BE7F9C60028B2A8 /* AppDelegate.swift in Sources */,

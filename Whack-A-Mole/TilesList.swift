@@ -31,12 +31,10 @@ class TilesList {
         for index in 1...16 {
             var tempTile = setRoleToSingleTile()
             tempTile = Tile(tileImage: tempTile.tileImage, ID: index, roleIfMole: tempTile.roleIfMole, roleName: tempTile.roleName,soundFileName: tempTile.soundFileName, soundType: tempTile.soundType)
-            
             tilesArray.append(tempTile)
         }
             return tilesArray
     }
-    
     
     func setRoleToSingleTile() -> Tile {
         var randomRole = Role(roleImage: UIImage(named: "cat")!, roleName: "baba", roleIfMole: true, soundFileName: "" , soundType: "")
@@ -67,5 +65,6 @@ class TilesList {
         tempTile = Tile(tileImage:randomRole.roleImage, ID: 10, roleIfMole: roleIfMole, roleName:randomRole.roleName, soundFileName: randomRole.soundFileName, soundType: randomRole.soundType)
         return tempTile
     }
+
 
 }

@@ -21,9 +21,8 @@ class ViewController: UIViewController{
     var tappedIndex = Int()
     var audioPlayerRole : AVAudioPlayer! = nil
     var scoreArray = [Int]()
-
-
     var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
+    
 
     @IBOutlet weak var gameView: UIView!
     @IBOutlet var imageCollection: [UIImageView]!
@@ -37,11 +36,11 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         intervalSeconds = difficultyLevel[0]
         super.viewDidLoad()
+        creatEmptyScoreArray()
         setTileArrayPassIageToTile()
         setupGame()
         setupInterval()
         setGesture()
-
 
     }
 
@@ -49,6 +48,7 @@ class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     // set up Tile
     func passTImageToImageViews(){
@@ -59,8 +59,16 @@ class ViewController: UIViewController{
     }
     func setTileArrayPassIageToTile(){
         TilesList.sharedTilesList.setTilesArray()
-        scoreArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         passTImageToImageViews()
+    }
+
+    //set up scoreArray
+    func creatEmptyScoreArray(){
+        for _ in MolesList.sharedMolesList.molesArray{
+            scoreArray.append(0)
+        }
+        print("IIAM scoreArray.........................................................\(scoreArray)")
+    
     }
     
     //set up game timer
@@ -171,52 +179,54 @@ class ViewController: UIViewController{
         return audioPlayer
     }
     func moleKingSwitchAffects(){
+        
         // if tapped no mole
         if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == false {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("CatSound", type: "mp3")
         }
-            // if tapped mole
+        // if tapped mole
         else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == true {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("WhackSound", type: "wav")
             updateScoreBoard()
         }
-            // if tapped secret role
+        // if tapped secret role
         else  {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
             playSound("CatSound", type: "mp3")
         }
     }
     
-    
     //tracking Score
-    func updateDetailScore(){
-        var tempScore: Int
-        tempScore = scoreArray[tappedIndex]+1
-        scoreArray.removeAtIndex(tappedIndex)
-        scoreArray.insert(tempScore, atIndex: tappedIndex)
-        print(scoreArray)
+    func updateDetailScoreSortScoreArray(){
+        var index = -1
+        for mole in MolesList.sharedMolesList.molesArray{
+            index = index + 1
+            if  TilesList.sharedTilesList.tilesArray[tappedIndex].roleName == mole.roleName {
+                scoreArray[index] = Int(scoreArray[index].value) + 1
+                print("the scoreArray is \(scoreArray) .....................................................")
+            }
+        }
     }
     
     func updateScoreBoard(){
-        updateDetailScore()
-        mainSLabel1.text = "\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) \(scoreArray[tappedIndex])"
-        mainSLabel2.text = ""
-        mainSLabel3.text = ""
+        updateDetailScoreSortScoreArray()
+        var tempScoreArray = scoreArray
+        var tempMoleArray = MolesList.sharedMolesList.molesArray    
+        
+        mainSLabel1.text = "\(tempMoleArray[(tempScoreArray.indexOf(tempScoreArray.maxElement()!))!].roleName) \(tempScoreArray.maxElement()!)"
+        tempScoreArray.removeAtIndex(tempScoreArray.indexOf(tempScoreArray.maxElement()!)!)
+        
+        
+        
+        //mainSLabel2.text = ""
+        //mainSLabel3.text = ""
     }
     
-    
-    
-    
-
     @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
         
     }
-    
-    
-    
-    
     
     
 
