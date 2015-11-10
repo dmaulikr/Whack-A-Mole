@@ -66,7 +66,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
-            cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
+            cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 5
             cell.cellImage.clipsToBounds = true
 //        online sample
 //        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;

@@ -22,6 +22,7 @@ class ViewController: UIViewController{
     var audioPlayerRole : AVAudioPlayer! = nil
     var scoreArray = [Int]()
     var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
+    var back = UIImageView(image: UIImage(named: "cat"))
     
 
     @IBOutlet weak var gameView: UIView!
@@ -53,12 +54,11 @@ class ViewController: UIViewController{
     // round tile
     func roundTile(){
         for tile in imageCollection{
-            tile.layer.cornerRadius = tile.frame.size.width / 1.5
+            tile.layer.cornerRadius = tile.frame.size.width / 2
             tile.clipsToBounds = true
         }
     }
 
-    
     
     // set up Tile
     func passTImageToImageViews(){
@@ -152,6 +152,9 @@ class ViewController: UIViewController{
             let tileTap = UITapGestureRecognizer(target: self, action: ("handleTap:"))
             imageCollection[index].addGestureRecognizer(tileTap)
             tappedIndex = index
+            imageCollection[index].userInteractionEnabled = true
+            imageCollection[index].addSubview(back)
+            imageCollection[index].addSubview(back)
         }
     }
     func handleTap(sender:UITapGestureRecognizer){
@@ -159,11 +162,24 @@ class ViewController: UIViewController{
             tappedIndex = sender.view!.tag
             print("\(TilesList.sharedTilesList.tilesArray[tappedIndex].roleName) was tappppppppppppppped")
             moleKingSwitchAffects()
-
         }
         else {
             sender.enabled = false
         }
+    }
+    
+    
+    //tile flip
+    func tileFlip(){
+        let imageView = imageCollection[tappedIndex]
+        print("imageView: \(imageView) was tapped")
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            let rotationDegrees: CGFloat = CGFloat(M_PI)
+            imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
+            print("do something here!")}, completion: { (completed: Bool) -> Void in
+                print("animation complete!")
+                imageView.image = UIImage(named: "cat")
+        })
     }
     
     
@@ -198,6 +214,7 @@ class ViewController: UIViewController{
         // if tapped mole
         else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == true {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
+            tileFlip()
             playSound("WhackSound", type: "wav")
             updateScoreBoard()
         }
@@ -246,6 +263,10 @@ class ViewController: UIViewController{
         }
 
     }
+    
+
+    
+
     
     @IBAction func tapTileFeedbackTileIndex(sender: UITapGestureRecognizer) {
         
