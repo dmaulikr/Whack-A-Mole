@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Parse
 
 class ViewController: UIViewController{
     
     var gameCount = 0
     var intervalCount = 0
     var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 45  // how long the game is going to be
+    var gameSeconds = 5  // how long the game is going to be
     var intervalSeconds = Int() // how long the interval is going to be
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
@@ -32,9 +33,11 @@ class ViewController: UIViewController{
     @IBOutlet weak var mainSLabel1: UILabel!
     @IBOutlet weak var mainSLabel2: UILabel!
     @IBOutlet weak var mainSLabel3: UILabel!
+    @IBOutlet weak var scoreBoardView: UIView!
 
     
     override func viewDidLoad() {
+        roundScoreBoard()
         roundTile()
         intervalSeconds = difficultyLevel[0]
         super.viewDidLoad()
@@ -49,6 +52,17 @@ class ViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //set up scoreBoard style
+    func roundScoreBoard(){
+        scoreBoardView.layer.cornerRadius = 20
+        scoreBoardView.layer.masksToBounds = true;
+
+        scoreBoardView.layer.shadowColor = UIColor.blackColor().CGColor
+        scoreBoardView.layer.shadowOffset = CGSizeMake(1.0, 1.0)
+        scoreBoardView.layer.masksToBounds = false;
+        scoreBoardView.layer.shadowRadius = 5.0;
     }
     
     // round tile
@@ -93,6 +107,7 @@ class ViewController: UIViewController{
         gameTimerLabel.text = "\(gameSeconds)"
         if(gameSeconds == 0) {
         gameTimer.invalidate()
+        updateGameResultToParse()
         
         }
     }
@@ -178,7 +193,7 @@ class ViewController: UIViewController{
             imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
             print("do something here!")}, completion: { (completed: Bool) -> Void in
                 print("animation complete!")
-                imageView.image = UIImage(named: "cat")
+                imageView.image = UIImage(named: "donaldTrumpSadFace")
         })
     }
     
@@ -263,6 +278,27 @@ class ViewController: UIViewController{
         }
 
     }
+    
+    //update parse
+    func updateGameResultToParse(){
+        var gameResult = PFObject(className:"GameResult")
+        gameResult["donaldTrump"] = 21
+        gameResult["kanyeWest"] = 21
+        gameResult["kimKardashian"] = 21
+        
+        gameResult.saveInBackgroundWithBlock{
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                dispatch_async(dispatch_get_main_queue()){
+                    print("update!!! Yeh!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                }
+        } else {
+            print("fail to update Parse!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+        }
+        }
+    }
+
     
 
     

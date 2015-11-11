@@ -14,6 +14,9 @@ class CollectionViewCell
     
     @IBOutlet weak var cellImage: UIImageView!
     
+    
+    
     @IBAction func buttonTappedDelectRole(sender: AnyObject) {
+
     }
 }

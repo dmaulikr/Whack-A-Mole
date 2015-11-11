@@ -72,9 +72,9 @@ class CollectionViewController: UICollectionViewController {
 //        online sample
 //        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
 //        self.profileImageView.clipsToBounds = YES;
-
-        
         cell.cellImage.image = tempArray[indexPath.row].roleImage
+        print("reading the array at index: \(indexPath.row)")
+        print("populate cell \(tempArray[indexPath.row].roleName)")
 
         // Configure the cell
     
@@ -84,7 +84,8 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let headerView: RoleHeaderReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "headerViewIdentifier", forIndexPath: indexPath) as! RoleHeaderReusableView
             print("section number : \(indexPath.section)")
-            headerView.sectionHeaderLabel.text = sectionArray[indexPath.section]
+            headerView.sectionHeaderLabel.text = sectionArray[indexPath.row]
+
         return headerView
     }
     
