@@ -35,26 +35,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KdM-O1-4P7">
-                            <size key="itemSize" width="95" height="90"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="101" height="110"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="cBt-Ic-vCf" customClass="CollectionViewCell" customModule="Whack_A_Mole" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="95" height="90"/>
+                                <rect key="frame" x="0.0" y="50" width="101" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="95" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="101" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZA-8s-jtx">
+                                            <rect key="frame" x="0.0" y="0.0" width="101" height="110"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Role Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7f-Lb-lzn">
+                                                    <rect key="frame" x="2" y="80" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="donaldtrump" translatesAutoresizingMaskIntoConstraints="NO" id="mLY-zu-cfZ">
-                                            <rect key="frame" x="8" y="8" width="72" height="69"/>
+                                            <rect key="frame" x="9" y="6" width="72" height="69"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Q8-oN-MfA">
-                                            <rect key="frame" x="73" y="67" width="21" height="21"/>
+                                            <rect key="frame" x="68" y="61" width="25" height="25"/>
                                             <color key="tintColor" red="1" green="0.82722602469999995" blue="0.15269484520000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="X">
+                                            <state key="normal" backgroundImage="remove">
                                                 <color key="titleColor" red="1" green="0.010511004149999999" blue="0.02060235233" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
@@ -70,6 +81,21 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerViewIdentifier" id="RJS-wM-704" customClass="RoleHeaderReusableView" customModule="Whack_A_Mole" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvI-gU-FOw">
+                                    <rect key="frame" x="8" y="21" width="194" height="21"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <connections>
+                                <outlet property="sectionHeaderLabel" destination="cvI-gU-FOw" id="vXS-38-WZ7"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Mj2-42-c8k" id="Uc2-4g-1FR"/>
                             <outlet property="delegate" destination="Mj2-42-c8k" id="0kv-gK-phB"/>
@@ -453,5 +479,6 @@
     <resources>
         <image name="Spartans" width="400" height="400"/>
         <image name="donaldtrump" width="176" height="195"/>
+        <image name="remove" width="32" height="32"/>
     </resources>
 </document>

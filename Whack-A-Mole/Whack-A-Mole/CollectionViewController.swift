@@ -12,7 +12,8 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     let reuseIdentifier = "cell"
-    
+    var tempArray = MolesList.sharedMolesList.molesArray + KingsList.sharedKingsList.kingsArray
+    let sectionArray = ["Who I want to Whack", "Who I want to save", "More roles to pick from"]
     
 //    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
 //    self.profileImageView.clipsToBounds = YES;
@@ -71,13 +72,24 @@ class CollectionViewController: UICollectionViewController {
 //        online sample
 //        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
 //        self.profileImageView.clipsToBounds = YES;
+
         
-        cell.cellImage.image = MolesList.sharedMolesList.molesArray[indexPath.row].roleImage
+        cell.cellImage.image = tempArray[indexPath.row].roleImage
 
         // Configure the cell
     
         return cell
     }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let headerView: RoleHeaderReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "headerViewIdentifier", forIndexPath: indexPath) as! RoleHeaderReusableView
+            print("section number : \(indexPath.section)")
+            headerView.sectionHeaderLabel.text = sectionArray[indexPath.section]
+        return headerView
+    }
+    
+    
+
 
     // MARK: UICollectionViewDelegate
 
