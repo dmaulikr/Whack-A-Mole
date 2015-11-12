@@ -56,6 +56,7 @@ class CollectionViewController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         var temp: Int = 0
         if section == 0 {
+            
             temp = MolesList.sharedMolesList.molesArray.count
         }
         
@@ -69,12 +70,9 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
             cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 5
             cell.cellImage.clipsToBounds = true
-//        online sample
-//        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-//        self.profileImageView.clipsToBounds = YES;
-        cell.cellImage.image = tempArray[indexPath.row].roleImage
-        print("reading the array at index: \(indexPath.row)")
-        print("populate cell \(tempArray[indexPath.row].roleName)")
+            cell.cellImage.image = tempArray[indexPath.row].roleImage
+            print("reading the array at index: \(indexPath.row)")
+            print("populate cell \(tempArray[indexPath.row].roleName)")
 
         // Configure the cell
     
@@ -84,7 +82,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let headerView: RoleHeaderReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "headerViewIdentifier", forIndexPath: indexPath) as! RoleHeaderReusableView
             print("section number : \(indexPath.section)")
-            headerView.sectionHeaderLabel.text = sectionArray[indexPath.row]
+            headerView.sectionHeaderLabel.text = sectionArray[indexPath.section]
 
         return headerView
     }

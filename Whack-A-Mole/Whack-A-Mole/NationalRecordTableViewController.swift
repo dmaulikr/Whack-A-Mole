@@ -17,7 +17,7 @@ class NationalRecordTableViewController: UITableViewController {
     @IBOutlet var tabelView: UITableView!
     
     override func viewDidLoad() {
-        fetchScoreDatefromParse()
+        fetchScoreDatafromParse()
         super.viewDidLoad()
 
 
@@ -52,22 +52,32 @@ class NationalRecordTableViewController: UITableViewController {
         
         var scoreString = String()
         var dateString = String()
+//        var scoreString1 = String()
         
         if let tempScore: PFObject = self.tempArray[indexPath.row] {
+            print("bababababa-------------------------------------------------")
+            print(tempScore)
+            
+            if let date = tempScore.updatedAt {
+                print("__________________")
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy"
+                dateString = dateFormatter.stringFromDate(date)
+
+
+                print(dateString)
+            } else {
+                print("Cannot create date object")
+            }
+            
+            
             if let score = tempScore.objectForKey("donaldTrump") as? Int {
                 print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 print(tempScore)
                  scoreString = "\(score)"
             }
-            
-            if let date = tempScore.objectForKey("updatedAt") as? NSDate {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "MM-dd-yyyy"
-                dateString = dateFormatter.stringFromDate(date)
-                print("__________________")
-                print(dateString)
-            }
-        }
+
+
 
         
             cell.textLabel!.text = "\(scoreString)times on \(dateString)"
@@ -75,10 +85,11 @@ class NationalRecordTableViewController: UITableViewController {
     
 
         return cell
+        }
     }
     
 
-    func fetchScoreDatefromParse() {
+    func fetchScoreDatafromParse() {
         
         var tempGameScore = String()
         var tempTime = String()
@@ -87,7 +98,8 @@ class NationalRecordTableViewController: UITableViewController {
             if error == nil {
                 for result in GameResult! {
 //                     self.downloadedHero.name = object["name"] as! String
-                    self.tempArray.append(result)
+                    self.tempArray = [result] + self.tempArray
+                    //self.tempArray.append(result)
                     print(self.tempArray.count)
                     print("fetching and append arrary -----------------------------------------------------")
                 }
