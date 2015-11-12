@@ -15,7 +15,7 @@ class GameViewController: UIViewController{
     var gameCount = 0
     var intervalCount = 0
     var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 5  // how long the game is going to be
+    var gameSeconds = 4  // how long the game is going to be
     var intervalSeconds = Int() // how long the interval is going to be
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
@@ -296,9 +296,16 @@ class GameViewController: UIViewController{
     }
     
     //update parse
+    
+   //if let score = scoreArray[((MolesList.sharedMolesList.molesArray.indexOf({$0.roleName == "Donald Trump"})))?]{
+    
+    
+    
+
+    
     func updateGameResultToParse(){
         var gameResult = PFObject(className:"GameResult")
-        gameResult["donaldTrump"] = 9
+        gameResult["donaldTrump"] = scoreArray[(((MolesList.sharedMolesList.molesArray.indexOf({$0.roleName == "Donald Trump"}))))!]
         gameResult.saveInBackgroundWithBlock{
             (success: Bool, error: NSError?) -> Void in
             if (success) {

@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Parse
 
 class NationalRecordTableViewController: UITableViewController {
+    var score = [Int]()
+    var dates = [String]()
+    var tempArray = [PFObject]()
 
+    @IBOutlet var tabelView: UITableView!
+    
     override func viewDidLoad() {
+        fetchScoreDatefromParse()
         super.viewDidLoad()
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,23 +37,68 @@ class NationalRecordTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tempArray.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        
+        var scoreString = String()
+        var dateString = String()
+        
+        if let tempScore: PFObject = self.tempArray[indexPath.row] {
+            if let score = tempScore.objectForKey("donaldTrump") as? Int {
+                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                print(tempScore)
+                 scoreString = "\(score)"
+            }
+            
+            if let date = tempScore.objectForKey("updatedAt") as? NSDate {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy"
+                dateString = dateFormatter.stringFromDate(date)
+                print("__________________")
+                print(dateString)
+            }
+        }
 
-        // Configure the cell...
+        
+            cell.textLabel!.text = "\(scoreString)times on \(dateString)"
+            cell.detailTextLabel?.text = "by a User in Michigan"
+    
 
         return cell
     }
-    */
+    
+
+    func fetchScoreDatefromParse() {
+        
+        var tempGameScore = String()
+        var tempTime = String()
+        let query = PFQuery(className:"GameResult")
+         query.findObjectsInBackgroundWithBlock{ (GameResult: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for result in GameResult! {
+//                     self.downloadedHero.name = object["name"] as! String
+                    self.tempArray.append(result)
+                    print(self.tempArray.count)
+                    print("fetching and append arrary -----------------------------------------------------")
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+
+
+
 
     /*
     // Override to support conditional editing of the table view.
