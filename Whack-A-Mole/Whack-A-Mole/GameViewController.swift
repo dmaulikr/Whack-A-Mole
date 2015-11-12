@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Parse
 
-class ViewController: UIViewController{
+class GameViewController: UIViewController{
     
     var gameCount = 0
     var intervalCount = 0
@@ -23,7 +23,7 @@ class ViewController: UIViewController{
     var audioPlayerRole : AVAudioPlayer! = nil
     var scoreArray = [Int]()
     var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
-    var back = UIImageView(image: UIImage(named: "cat"))
+
     
 
     @IBOutlet weak var gameView: UIView!
@@ -81,6 +81,7 @@ class ViewController: UIViewController{
             print(TilesList.sharedTilesList.tilesArray[index].ID)
         }
     }
+    
     func setTileArrayPassIageToTile(){
         TilesList.sharedTilesList.setTilesArray()
         passTImageToImageViews()
@@ -116,37 +117,46 @@ class ViewController: UIViewController{
     func setupInterval() {
         intervalTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("subtractIntervalTime"), userInfo: nil, repeats: true)
     }
+    
     func subtractIntervalTime() {
         intervalSeconds--
         print( "\(intervalSeconds)")
-        if (gameSeconds > gameDifficultyBreakPoint[0]) {
-            if(intervalSeconds == 0) {
-                intervalSeconds = difficultyLevel[0]
-                print("change tile, difficulty to easy")
+        for breakPoint in gameDifficultyBreakPoint{
+            if gameSeconds > breakPoint {
+                intervalSeconds = difficultyLevel[gameDifficultyBreakPoint.indexOf(breakPoint)!]
+                print("time to Speed Up!!")
                 TilesList.sharedTilesList.tilesArray = [Tile]()
                 setTileArrayPassIageToTile()
             }
         }
+   
+//        if (gameSeconds > gameDifficultyBreakPoint[0]) {
+//            if(intervalSeconds == 0) {
+//                intervalSeconds = difficultyLevel[0]
+//                print("change tile, difficulty to easy")
+//                TilesList.sharedTilesList.tilesArray = [Tile]()
+//                setTileArrayPassIageToTile()
+//            }
+//        }
+//        
+//        else if (gameSeconds > gameDifficultyBreakPoint[1]) {
+//            if(intervalSeconds == 0) {
+//                intervalSeconds = difficultyLevel[1]
+//                print("change tile image next, difficulty to medium")
+//                TilesList.sharedTilesList.tilesArray = [Tile]()
+//                setTileArrayPassIageToTile()
+//            }
+//        }
+//            
+//        else if (gameSeconds > gameDifficultyBreakPoint[2]) {
+//            if(intervalSeconds == 0) {
+//                intervalSeconds = difficultyLevel[2]
+//                print("change tile image next, difficulty to hard")
+//                TilesList.sharedTilesList.tilesArray = [Tile]()
+//                setTileArrayPassIageToTile()
+//            }
         
-        else if (gameSeconds > gameDifficultyBreakPoint[1]) {
-            if(intervalSeconds == 0) {
-                intervalSeconds = difficultyLevel[1]
-                print("change tile image next, difficulty to medium")
-                TilesList.sharedTilesList.tilesArray = [Tile]()
-                setTileArrayPassIageToTile()
-            }
-        }
-            
-        else if (gameSeconds > gameDifficultyBreakPoint[2]) {
-            if(intervalSeconds == 0) {
-                intervalSeconds = difficultyLevel[2]
-                print("change tile image next, difficulty to hard")
-                TilesList.sharedTilesList.tilesArray = [Tile]()
-                setTileArrayPassIageToTile()
-            }
-        }
-        
-        else if (gameSeconds > 0) {
+        if gameSeconds > 0 {
             if(intervalSeconds == 0) {
                 intervalSeconds = difficultyLevel[2]
                 print("change tile image next")
@@ -167,11 +177,9 @@ class ViewController: UIViewController{
             let tileTap = UITapGestureRecognizer(target: self, action: ("handleTap:"))
             imageCollection[index].addGestureRecognizer(tileTap)
             tappedIndex = index
-            imageCollection[index].userInteractionEnabled = true
-            imageCollection[index].addSubview(back)
-            imageCollection[index].addSubview(back)
         }
     }
+    
     func handleTap(sender:UITapGestureRecognizer){
         if gameSeconds > 0 {
             tappedIndex = sender.view!.tag
@@ -205,6 +213,8 @@ class ViewController: UIViewController{
         audioPlayerRole.play()
         audioPlayerRole.volume = 3.0
     }
+    
+    
     func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
         let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
         
@@ -219,6 +229,8 @@ class ViewController: UIViewController{
         }
         return audioPlayer
     }
+    
+    
     func moleKingSwitchAffects(){
         
         // if tapped no mole
@@ -240,6 +252,8 @@ class ViewController: UIViewController{
         }
     }
     
+    
+    
     //tracking Score
     func updateDetailScoreSortScoreArray(){
         var index = -1
@@ -251,6 +265,8 @@ class ViewController: UIViewController{
             }
         }
     }
+    
+    
     
     func updateScoreBoard(){
         updateDetailScoreSortScoreArray()
@@ -282,10 +298,7 @@ class ViewController: UIViewController{
     //update parse
     func updateGameResultToParse(){
         var gameResult = PFObject(className:"GameResult")
-        gameResult["donaldTrump"] = 21
-        gameResult["kanyeWest"] = 21
-        gameResult["kimKardashian"] = 21
-        
+        gameResult["donaldTrump"] = 9
         gameResult.saveInBackgroundWithBlock{
             (success: Bool, error: NSError?) -> Void in
             if (success) {

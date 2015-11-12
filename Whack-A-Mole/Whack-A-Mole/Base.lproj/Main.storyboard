@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-668" y="268"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Whack_A_Mole" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Whack_A_Mole" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -497,6 +497,10 @@
         <scene sceneID="1ff-HQ-We6">
             <objects>
                 <viewController id="n7D-KA-3az" customClass="NationalRecordTableViewController" customModule="Whack_A_Mole" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f6u-Sd-2E9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qlU-U7-PYJ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yHr-Ct-Lsy">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="343"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
