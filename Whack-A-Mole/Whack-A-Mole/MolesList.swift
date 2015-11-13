@@ -22,7 +22,7 @@ class MolesList {
     private(set) var molesArray:[Role]
     
     init() {
-        molesArray = [donaldtrump, wolverines]
+        molesArray = [donaldtrump, kanyeWest]
     }
     
     

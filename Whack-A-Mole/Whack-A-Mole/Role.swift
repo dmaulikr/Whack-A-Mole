@@ -30,4 +30,4 @@ var cat = Role(roleImage: UIImage(named: "cat")!, roleName: "cat", roleIfMole: f
 var spartans = Role(roleImage: UIImage(named: "Spartans")!, roleName: "Spartans", roleIfMole: true,  soundFileName: "WhatSound", soundType: "wav")
 var wolverines = Role(roleImage: UIImage(named: "Wolverines")!, roleName: "Wolverines", roleIfMole: true,  soundFileName: "WhackSound", soundType: "wav")
 var donaldtrump = Role(roleImage: UIImage(named: "Donald Trump")!, roleName: "Donald Trump", roleIfMole: true, soundFileName: "WhackSound", soundType: "wav")
-
+var kanyeWest = Role(roleImage: UIImage(named: "Kanye West")!, roleName: "Kanye West", roleIfMole: true, soundFileName: "WhackSound", soundType: "wav")

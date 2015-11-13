@@ -24,6 +24,7 @@
 		3D1794501BF399A90068C0E7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D17944F1BF399A90068C0E7 /* libsqlite3.tbd */; };
 		3D1794521BF39ADE0068C0E7 /* NationalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1794511BF39ADE0068C0E7 /* NationalScoreViewController.swift */; };
 		3D1794541BF3BC3B0068C0E7 /* NationalRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1794531BF3BC3B0068C0E7 /* NationalRecordTableViewController.swift */; };
+		3D998CD81BF61B1000DCA926 /* youfired.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D998CD71BF61B1000DCA926 /* youfired.mp3 */; };
 		3DA37EEB1BE7F9C60028B2A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EEA1BE7F9C60028B2A8 /* AppDelegate.swift */; };
 		3DA37EED1BE7F9C60028B2A8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EEC1BE7F9C60028B2A8 /* GameViewController.swift */; };
 		3DA37EF01BE7F9C60028B2A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA37EEE1BE7F9C60028B2A8 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		3D17944F1BF399A90068C0E7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3D1794511BF39ADE0068C0E7 /* NationalScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NationalScoreViewController.swift; path = ../NationalScoreViewController.swift; sourceTree = "<group>"; };
 		3D1794531BF3BC3B0068C0E7 /* NationalRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NationalRecordTableViewController.swift; sourceTree = "<group>"; };
+		3D998CD71BF61B1000DCA926 /* youfired.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = youfired.mp3; path = Assets.xcassets/youfired.mp3; sourceTree = "<group>"; };
 		3DA37EE71BE7F9C60028B2A8 /* Whack-A-Mole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whack-A-Mole.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA37EEA1BE7F9C60028B2A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA37EEC1BE7F9C60028B2A8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		3D5056C21BEBDC1000AEB108 /* SupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				3D998CD71BF61B1000DCA926 /* youfired.mp3 */,
 				3D5056C41BEBDC3500AEB108 /* RoleSound */,
 				3D5056C31BEBDC2B00AEB108 /* GameAffect */,
 			);
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA37EF51BE7F9C60028B2A8 /* LaunchScreen.storyboard in Resources */,
+				3D998CD81BF61B1000DCA926 /* youfired.mp3 in Resources */,
 				3DA37EF21BE7F9C60028B2A8 /* Assets.xcassets in Resources */,
 				3DB242FD1BEBE82200EC0221 /* WhackSound.wav in Resources */,
 				3DA37EF01BE7F9C60028B2A8 /* Main.storyboard in Resources */,

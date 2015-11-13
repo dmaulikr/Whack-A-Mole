@@ -15,14 +15,15 @@ class GameViewController: UIViewController{
     var gameCount = 0
     var intervalCount = 0
     var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 4  // how long the game is going to be
+    var gameSeconds = 45  // how long the game is going to be
     var intervalSeconds = Int() // how long the interval is going to be
     var gameTimer = NSTimer()
     var intervalTimer = NSTimer()
     var tappedIndex = Int()
     var audioPlayerRole : AVAudioPlayer! = nil
+    var audioPlayerEnding : AVAudioPlayer! = nil
     var scoreArray = [Int]()
-    var gameDifficultyBreakPoint = [40, 35, 15]  //at what time adjust the interval speed
+    var gameDifficultyBreakPoint = [40, 20, 15]  //at what time adjust the interval speed
 
     
 
@@ -57,12 +58,11 @@ class GameViewController: UIViewController{
     //set up scoreBoard style
     func roundScoreBoard(){
         scoreBoardView.layer.cornerRadius = 20
-        scoreBoardView.layer.masksToBounds = true;
-
+        scoreBoardView.layer.masksToBounds = true
         scoreBoardView.layer.shadowColor = UIColor.blackColor().CGColor
         scoreBoardView.layer.shadowOffset = CGSizeMake(1.0, 1.0)
-        scoreBoardView.layer.masksToBounds = false;
-        scoreBoardView.layer.shadowRadius = 5.0;
+        scoreBoardView.layer.masksToBounds = false
+        scoreBoardView.layer.shadowRadius = 5.0
     }
     
     // round tile
@@ -109,7 +109,7 @@ class GameViewController: UIViewController{
         if(gameSeconds == 0) {
         gameTimer.invalidate()
         updateGameResultToParse()
-        
+        playSound("youfired", type: "mp3")
         }
     }
     
@@ -129,32 +129,7 @@ class GameViewController: UIViewController{
                 setTileArrayPassIageToTile()
             }
         }
-   
-//        if (gameSeconds > gameDifficultyBreakPoint[0]) {
-//            if(intervalSeconds == 0) {
-//                intervalSeconds = difficultyLevel[0]
-//                print("change tile, difficulty to easy")
-//                TilesList.sharedTilesList.tilesArray = [Tile]()
-//                setTileArrayPassIageToTile()
-//            }
-//        }
-//        
-//        else if (gameSeconds > gameDifficultyBreakPoint[1]) {
-//            if(intervalSeconds == 0) {
-//                intervalSeconds = difficultyLevel[1]
-//                print("change tile image next, difficulty to medium")
-//                TilesList.sharedTilesList.tilesArray = [Tile]()
-//                setTileArrayPassIageToTile()
-//            }
-//        }
-//            
-//        else if (gameSeconds > gameDifficultyBreakPoint[2]) {
-//            if(intervalSeconds == 0) {
-//                intervalSeconds = difficultyLevel[2]
-//                print("change tile image next, difficulty to hard")
-//                TilesList.sharedTilesList.tilesArray = [Tile]()
-//                setTileArrayPassIageToTile()
-//            }
+
         
         if gameSeconds > 0 {
             if(intervalSeconds == 0) {
@@ -194,6 +169,7 @@ class GameViewController: UIViewController{
     
     //tile flip
     func tileFlip(){
+
         let imageView = imageCollection[tappedIndex]
         print("imageView: \(imageView) was tapped")
         UIView.animateWithDuration(0.4, animations: { () -> Void in
@@ -214,6 +190,13 @@ class GameViewController: UIViewController{
         audioPlayerRole.volume = 3.0
     }
     
+//    func playSoundEnding(soundFileName: String, type: String){
+//        let tempAudioPlayer  = self.setupAudioFile(soundFileName, type: type)
+//        self.audioPlayerEnding = tempAudioPlayer
+//        audioPlayerEnding.play()
+//        audioPlayerEnding.volume = 3.0
+//    }
+    
     
     func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
         let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
@@ -230,6 +213,11 @@ class GameViewController: UIViewController{
         return audioPlayer
     }
     
+
+    
+    
+
+    
     
     func moleKingSwitchAffects(){
         
@@ -241,7 +229,9 @@ class GameViewController: UIViewController{
         // if tapped mole
         else if TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole == true {
             print(TilesList.sharedTilesList.tilesArray[tappedIndex].roleIfMole)
-            tileFlip()
+            if TilesList.sharedTilesList.tilesArray[tappedIndex].roleName == "Donald Trump"{
+                tileFlip()
+            }
             playSound("WhackSound", type: "wav")
             updateScoreBoard()
         }

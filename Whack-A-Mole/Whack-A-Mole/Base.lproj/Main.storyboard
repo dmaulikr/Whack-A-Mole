@@ -19,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Donald Trump has been whacked" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9Q-px-zlN">
-                                <rect key="frame" x="40" y="20" width="236" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donald Trump has been whacked" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9Q-px-zlN">
+                                <rect key="frame" x="40" y="30" width="236" height="93"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-k8-mjF">
-                                <rect key="frame" x="20" y="87" width="280" height="305"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-k8-mjF">
+                                <rect key="frame" x="20" y="131" width="280" height="305"/>
                                 <connections>
                                     <segue destination="IKa-D6-les" kind="embed" id="Vyj-NU-Uhd"/>
                                 </connections>
@@ -35,9 +35,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M9Q-px-zlN" firstAttribute="top" secondItem="hd6-mD-GbL" secondAttribute="bottom" constant="10" id="0qD-1A-iqG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M9Q-px-zlN" secondAttribute="trailing" constant="28" id="3ge-dU-kO5"/>
+                            <constraint firstItem="Anz-k8-mjF" firstAttribute="top" secondItem="4bh-M3-eiG" secondAttribute="top" constant="131" id="8ye-Yx-vqF"/>
                             <constraint firstItem="Anz-k8-mjF" firstAttribute="centerX" secondItem="4bh-M3-eiG" secondAttribute="centerX" id="GDM-4l-SRV"/>
                             <constraint firstItem="Anz-k8-mjF" firstAttribute="top" secondItem="M9Q-px-zlN" secondAttribute="bottom" constant="8" id="JBm-lb-nHz"/>
                             <constraint firstItem="Anz-k8-mjF" firstAttribute="leading" secondItem="4bh-M3-eiG" secondAttribute="leadingMargin" constant="4" id="MOd-pU-k8F"/>
+                            <constraint firstItem="M9Q-px-zlN" firstAttribute="leading" secondItem="4bh-M3-eiG" secondAttribute="leadingMargin" constant="24" id="UlE-Yc-OBj"/>
+                            <constraint firstItem="O9D-yL-0PE" firstAttribute="top" secondItem="Anz-k8-mjF" secondAttribute="bottom" constant="83" id="ej9-PY-CMV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="Xuq-oI-ebQ"/>
@@ -85,6 +89,9 @@
                             <outlet property="delegate" destination="IKa-D6-les" id="w0X-Xk-VG1"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="x0S-NG-iYO">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="tabelView" destination="dED-WD-7fk" id="3nC-j9-LwG"/>
                     </connections>
@@ -98,7 +105,7 @@
             <objects>
                 <collectionViewController id="Mj2-42-c8k" customClass="CollectionViewController" customModule="Whack_A_Mole" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZhH-Um-9u7">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="439"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="447"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KdM-O1-4P7">
@@ -146,6 +153,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="cellImage" destination="mLY-zu-cfZ" id="Jhp-2v-OP1"/>
+                                    <outlet property="nameLabel" destination="b7f-Lb-lzn" id="G5I-cj-8ZO"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -154,12 +162,13 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvI-gU-FOw">
-                                    <rect key="frame" x="8" y="21" width="194" height="21"/>
+                                    <rect key="frame" x="8" y="21" width="264" height="21"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="sectionHeaderLabel" destination="cvI-gU-FOw" id="vXS-38-WZ7"/>
                             </connections>
@@ -187,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-WN-j6p">
-                                <rect key="frame" x="20" y="72" width="280" height="439"/>
+                                <rect key="frame" x="20" y="72" width="280" height="447"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Mj2-42-c8k" kind="embed" id="MVA-1X-Zvu"/>
@@ -533,11 +542,11 @@
             </objects>
             <point key="canvasLocation" x="787" y="-47"/>
         </scene>
-        <!--Item 1-->
+        <!--Setup Page-->
         <scene sceneID="B6e-L3-6Bc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kez-AB-F3V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="fcH-zf-wiT"/>
+                    <tabBarItem key="tabBarItem" title="Setup Page" id="fcH-zf-wiT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhu-Jd-v05">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -551,6 +560,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNX-Pb-4Te" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-128" y="-47"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GWC-MS-SDJ">
+            <objects>
+                <viewController id="8tT-TV-MBR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1r6-g9-632">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FTt-b9-oKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

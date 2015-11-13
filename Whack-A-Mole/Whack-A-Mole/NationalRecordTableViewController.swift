@@ -13,12 +13,15 @@ class NationalRecordTableViewController: UITableViewController {
     var score = [Int]()
     var dates = [String]()
     var tempArray = [PFObject]()
+    
+    
 
     @IBOutlet var tabelView: UITableView!
     
     override func viewDidLoad() {
         fetchScoreDatafromParse()
         super.viewDidLoad()
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -106,6 +109,14 @@ class NationalRecordTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
 

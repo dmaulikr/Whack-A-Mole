@@ -14,6 +14,7 @@ class CollectionViewCell
     
     @IBOutlet weak var cellImage: UIImageView!
     
+    @IBOutlet weak var nameLabel: UITextField!
     
     
     @IBAction func buttonTappedDelectRole(sender: AnyObject) {
