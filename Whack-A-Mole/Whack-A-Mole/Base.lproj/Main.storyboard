@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Na1-kd-ojv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Na1-kd-ojv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -542,11 +542,11 @@
             </objects>
             <point key="canvasLocation" x="787" y="-47"/>
         </scene>
-        <!--Setup Page-->
+        <!--setting-->
         <scene sceneID="B6e-L3-6Bc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kez-AB-F3V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setup Page" id="fcH-zf-wiT"/>
+                    <tabBarItem key="tabBarItem" title="setting" image="setting" selectedImage="setting" id="fcH-zf-wiT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhu-Jd-v05">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -561,23 +561,11 @@
             </objects>
             <point key="canvasLocation" x="-128" y="-47"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="GWC-MS-SDJ">
-            <objects>
-                <viewController id="8tT-TV-MBR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1r6-g9-632">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FTt-b9-oKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Spartans" width="400" height="400"/>
         <image name="donaldtrump" width="176" height="195"/>
         <image name="remove" width="32" height="32"/>
+        <image name="setting" width="30" height="30"/>
     </resources>
 </document>

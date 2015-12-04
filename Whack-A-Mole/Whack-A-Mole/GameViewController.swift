@@ -174,7 +174,13 @@ class GameViewController: UIViewController{
         print("imageView: \(imageView) was tapped")
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             let rotationDegrees: CGFloat = CGFloat(M_PI)
-            imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
+            
+            var imageViewTransform = CATransform3DIdentity
+            imageViewTransform.m34 = -1/500.0
+            imageView.layer.transform = CATransform3DRotate(imageViewTransform, rotationDegrees, 0, 1, 0)
+            
+//            imageView.layer.transform.m34 = -1/400.0;
+//            imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
             print("do something here!")}, completion: { (completed: Bool) -> Void in
                 print("animation complete!")
                 imageView.image = UIImage(named: "donaldTrumpSadFace")
@@ -189,13 +195,6 @@ class GameViewController: UIViewController{
         audioPlayerRole.play()
         audioPlayerRole.volume = 3.0
     }
-    
-//    func playSoundEnding(soundFileName: String, type: String){
-//        let tempAudioPlayer  = self.setupAudioFile(soundFileName, type: type)
-//        self.audioPlayerEnding = tempAudioPlayer
-//        audioPlayerEnding.play()
-//        audioPlayerEnding.volume = 3.0
-//    }
     
     
     func setupAudioFile(file: String, type: String) -> AVAudioPlayer? {
