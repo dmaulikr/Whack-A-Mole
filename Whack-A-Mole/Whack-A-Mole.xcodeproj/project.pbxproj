@@ -32,8 +32,8 @@
 		3DA37EF51BE7F9C60028B2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA37EF31BE7F9C60028B2A8 /* LaunchScreen.storyboard */; };
 		3DA37F001BE7F9C60028B2A8 /* Whack_A_MoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37EFF1BE7F9C60028B2A8 /* Whack_A_MoleTests.swift */; };
 		3DA37F0B1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA37F0A1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift */; };
-		3DB242FB1BEBE81800EC0221 /* CatSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242FA1BEBE81800EC0221 /* CatSound.mp3 */; };
-		3DB242FD1BEBE82200EC0221 /* WhackSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3DB242FC1BEBE82200EC0221 /* WhackSound.wav */; };
+		3DA74F6C1CA507CC0088AD83 /* CatSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DA74F6B1CA507CC0088AD83 /* CatSound.mp3 */; };
+		3DA74F6E1CA5080B0088AD83 /* WhackSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3DA74F6D1CA5080B0088AD83 /* WhackSound.wav */; };
 		3DD270201BE934B700F7F4E1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2701F1BE934B700F7F4E1 /* Tile.swift */; };
 		3DD270221BE9376100F7F4E1 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270211BE9376100F7F4E1 /* Role.swift */; };
 		3DD270241BE938FC00F7F4E1 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD270231BE938FC00F7F4E1 /* game.swift */; };
@@ -92,8 +92,8 @@
 		3DA37F061BE7F9C60028B2A8 /* Whack-A-MoleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Whack-A-MoleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA37F0A1BE7F9C60028B2A8 /* Whack_A_MoleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whack_A_MoleUITests.swift; sourceTree = "<group>"; };
 		3DA37F0C1BE7F9C60028B2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DB242FA1BEBE81800EC0221 /* CatSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = CatSound.mp3; path = ../../../CatSound.mp3; sourceTree = "<group>"; };
-		3DB242FC1BEBE82200EC0221 /* WhackSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = WhackSound.wav; path = ../../../WhackSound.wav; sourceTree = "<group>"; };
+		3DA74F6B1CA507CC0088AD83 /* CatSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = CatSound.mp3; path = Assets.xcassets/Sound/CatSound.mp3; sourceTree = "<group>"; };
+		3DA74F6D1CA5080B0088AD83 /* WhackSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = WhackSound.wav; path = Assets.xcassets/Sound/WhackSound.wav; sourceTree = "<group>"; };
 		3DD2701F1BE934B700F7F4E1 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		3DD270211BE9376100F7F4E1 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		3DD270231BE938FC00F7F4E1 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		3D5056C31BEBDC2B00AEB108 /* GameAffect */ = {
 			isa = PBXGroup;
 			children = (
-				3DB242FC1BEBE82200EC0221 /* WhackSound.wav */,
+				3DA74F6D1CA5080B0088AD83 /* WhackSound.wav */,
 			);
 			name = GameAffect;
 			sourceTree = "<group>";
@@ -181,7 +181,7 @@
 		3D5056C41BEBDC3500AEB108 /* RoleSound */ = {
 			isa = PBXGroup;
 			children = (
-				3DB242FA1BEBE81800EC0221 /* CatSound.mp3 */,
+				3DA74F6B1CA507CC0088AD83 /* CatSound.mp3 */,
 			);
 			name = RoleSound;
 			sourceTree = "<group>";
@@ -374,9 +374,9 @@
 				3DA37EF51BE7F9C60028B2A8 /* LaunchScreen.storyboard in Resources */,
 				3D998CD81BF61B1000DCA926 /* youfired.mp3 in Resources */,
 				3DA37EF21BE7F9C60028B2A8 /* Assets.xcassets in Resources */,
-				3DB242FD1BEBE82200EC0221 /* WhackSound.wav in Resources */,
+				3DA74F6C1CA507CC0088AD83 /* CatSound.mp3 in Resources */,
+				3DA74F6E1CA5080B0088AD83 /* WhackSound.wav in Resources */,
 				3DA37EF01BE7F9C60028B2A8 /* Main.storyboard in Resources */,
-				3DB242FB1BEBE81800EC0221 /* CatSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

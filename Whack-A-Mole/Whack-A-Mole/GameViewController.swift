@@ -249,7 +249,7 @@ class GameViewController: UIViewController{
         for mole in MolesList.sharedMolesList.molesArray{
             index = index + 1
             if  TilesList.sharedTilesList.tilesArray[tappedIndex].roleName == mole.roleName {
-                scoreArray[index] = Int(scoreArray[index].value) + 1
+                    scoreArray[index] = Int(scoreArray[index]) + 1
                 print("the scoreArray is \(scoreArray) .....................................................")
             }
         }
