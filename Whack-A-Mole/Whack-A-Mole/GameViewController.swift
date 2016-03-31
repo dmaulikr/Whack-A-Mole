@@ -11,32 +11,35 @@ import AVFoundation
 import Parse
 
 class GameViewController: UIViewController{
+
     
-    var gameCount = 0
-    var intervalCount = 0
-    var difficultyLevel = [3, 2, 1]  //how long each interval timer loop gonna be
-    var gameSeconds = 45  // how long the game is going to be
-    var intervalSeconds = Int() // how long the interval is going to be
-    var gameTimer = NSTimer()
-    var intervalTimer = NSTimer()
-    var tappedIndex = Int()
-    var audioPlayerRole : AVAudioPlayer! = nil
+    //MARK: - Properties
+    var gameCount =         0
+    var intervalCount =     0
+    var difficultyLevel =   [3, 2, 1]  //how long each interval timer loop gonna be
+    var gameSeconds =       45  // how long the game is going to be
+    var intervalSeconds =   Int() // how long the interval is going to be
+    var gameTimer =         NSTimer()
+    var intervalTimer =     NSTimer()
+    var tappedIndex =       Int()
+    var audioPlayerRole :   AVAudioPlayer! = nil
     var audioPlayerEnding : AVAudioPlayer! = nil
-    var scoreArray = [Int]()
+    var scoreArray =        [Int]()
     var gameDifficultyBreakPoint = [40, 20, 15]  //at what time adjust the interval speed
 
     
 
-    @IBOutlet weak var gameView: UIView!
-    @IBOutlet var imageCollection: [UIImageView]!
+    @IBOutlet weak var gameView:       UIView!
+    @IBOutlet var imageCollection:     [UIImageView]!
     @IBOutlet weak var gameTimerLabel: UILabel!
-    @IBOutlet var tapGesturerOutlet: UITapGestureRecognizer!
-    @IBOutlet weak var mainSLabel1: UILabel!
-    @IBOutlet weak var mainSLabel2: UILabel!
-    @IBOutlet weak var mainSLabel3: UILabel!
+    @IBOutlet var tapGesturerOutlet:   UITapGestureRecognizer!
+    @IBOutlet weak var mainSLabel1:    UILabel!
+    @IBOutlet weak var mainSLabel2:    UILabel!
+    @IBOutlet weak var mainSLabel3:    UILabel!
     @IBOutlet weak var scoreBoardView: UIView!
 
     
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         roundScoreBoard()
         roundTile()
@@ -55,17 +58,19 @@ class GameViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: - Interactivity Methods
     //set up scoreBoard style
     func roundScoreBoard(){
-        scoreBoardView.layer.cornerRadius = 20
-        scoreBoardView.layer.masksToBounds = true
-        scoreBoardView.layer.shadowColor = UIColor.blackColor().CGColor
-        scoreBoardView.layer.shadowOffset = CGSizeMake(1.0, 1.0)
-        scoreBoardView.layer.masksToBounds = false
-        scoreBoardView.layer.shadowRadius = 5.0
+        scoreBoardView.layer.cornerRadius =     20
+        scoreBoardView.layer.masksToBounds =    true
+        scoreBoardView.layer.shadowColor =      UIColor.blackColor().CGColor
+        scoreBoardView.layer.shadowOffset =     CGSizeMake(1.0, 1.0)
+        scoreBoardView.layer.masksToBounds =    false
+        scoreBoardView.layer.shadowRadius =     5.0
     }
     
-    // round tile
+    // reshape tile - make it round
     func roundTile(){
         for tile in imageCollection{
             tile.layer.cornerRadius = tile.frame.size.width / 2
@@ -74,7 +79,7 @@ class GameViewController: UIViewController{
     }
 
     
-    // set up Tile
+    // set up Tile to each grids
     func passTImageToImageViews(){
         for index in 0...15{
             imageCollection[index].image = TilesList.sharedTilesList.tilesArray[index].tileImage
@@ -87,7 +92,7 @@ class GameViewController: UIViewController{
         passTImageToImageViews()
     }
 
-    //set up scoreArray
+    //set up emptyScore scoreArray
     func creatEmptyScoreArray(){
         for _ in MolesList.sharedMolesList.molesArray{
             scoreArray.append(0)
@@ -101,6 +106,8 @@ class GameViewController: UIViewController{
         gameTimerLabel.text = "\(gameSeconds)"
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractGameTime"), userInfo: nil, repeats: true)
     }
+    
+    //set up subtract game timer
     func subtractGameTime() {
         intervalCount++
         print("This is the \(intervalCount)th interval.")
@@ -179,8 +186,11 @@ class GameViewController: UIViewController{
             imageViewTransform.m34 = -1/500.0
             imageView.layer.transform = CATransform3DRotate(imageViewTransform, rotationDegrees, 0, 1, 0)
             
-//            imageView.layer.transform.m34 = -1/400.0;
-//            imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
+/* 
+        Or we can try
+        imageView.layer.transform.m34 = -1/400.0;
+        imageView.layer.transform = CATransform3DMakeRotation(rotationDegrees, 0, 1, 0)
+ */
             print("do something here!")}, completion: { (completed: Bool) -> Void in
                 print("animation complete!")
                 imageView.image = UIImage(named: "donaldTrumpSadFace")
@@ -214,8 +224,6 @@ class GameViewController: UIViewController{
     
 
     
-    
-
     
     
     func moleKingSwitchAffects(){
@@ -285,13 +293,6 @@ class GameViewController: UIViewController{
     }
     
     //update parse
-    
-   //if let score = scoreArray[((MolesList.sharedMolesList.molesArray.indexOf({$0.roleName == "Donald Trump"})))?]{
-    
-    
-    
-
-    
     func updateGameResultToParse(){
         var gameResult = PFObject(className:"GameResult")
         gameResult["donaldTrump"] = scoreArray[(((MolesList.sharedMolesList.molesArray.indexOf({$0.roleName == "Donald Trump"}))))!]
